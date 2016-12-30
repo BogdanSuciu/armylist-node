@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    
+    <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/styles/styles.css">
+    
+    <link rel="stylesheet" href="app/modules/quick-reference/css/quick-reference.css">
+    
+    <link rel="stylesheet" href="app/directives/one-d-table/one-d-table.css">
+    <link rel="stylesheet" href="app/directives/two-d-table/two-d-table.css">
+    <link rel="stylesheet" href="app/directives/modal/modal.css">
+    
+    <link rel="stylesheet" href="app/modules/main-navigation/directives/main-navigation.css">
+        
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/ngstorage/ngStorage.min.js"></script>
+    <script src="assets/libs/angular-route/angular-route.min.js"></script>
+  </head>
+
+  <body ng-app="armyApp" ng-cloak>
+    <main-navigation></main-navigation>
+    <div class="container-fluid">
+      <ng-view></ng-view>
+      <armylist-modal></armylist-modal>
+    </div>
+    <script src="app/app-module.js"></script>
+    <script src="app/app-router.js"></script>
+    
+    <script src="app/modules/main-navigation/main-navigation-controller.js"></script>
+    <script src="app/modules/main-navigation/directives/main-navigation.js"></script>
+    
+    <script src="app/modules/army-list/army-list-controller.js"></script>
+    <script src="app/modules/army-list/directives/force-select.js"></script>
+    
+    <script src="app/modules/welcome/welcome-controller.js"></script>
+    
+    <script src="app/modules/error-page/error-page-controller.js"></script>
+    
+    <script src="app/modules/quick-reference/quick-reference-controller.js"></script>
+    
+    <script src="app/directives/one-d-table/one-d-table.js"></script>
+    <script src="app/directives/two-d-table/two-d-table.js"></script>
+    <script src="app/directives/modal/modal.js"></script>
+    
+    <script src="app/services/request-services.js"></script>
+    <script src="app/services/storage-services.js"></script>
+    <script src="app/services/data-services.js"></script>
+    <script src="app/services/scope-services.js"></script>
+    
+  </body>
+
+
+</html>

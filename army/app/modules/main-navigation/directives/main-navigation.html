@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse main-navbar-custom" ng-controller="mainNavigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-nav-menu">
+      <ul class="nav navbar-nav">
+        <li ng-repeat="(index,value) in mainNavigation.pages" ng-class="{ active: mainNavigation.isActive(value['routing-uri']) }">
+          <a href="{{value['routing-uri']}}">
+            {{value['display-name']}}
+          </a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

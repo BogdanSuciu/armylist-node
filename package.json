@@ -1,0 +1,16 @@
+{
+  "name": "starter-node-angular",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.4.2",
+    "express": "~4.5.1",
+    "method-override": "~2.0.2",
+    "mongoose": "~3.8.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "jit-grunt": "^0.10.0"
+  }
+}

@@ -1,0 +1,10 @@
+<table ng-if="showTable" class="two-d-table">
+  <tr>
+    <th ng-bind="label" ></th>
+    <th ng-repeat="(column,value) in data track by $index" ng-bind="column" ng-click="table.selectColumn(this)" ng-class="{'active-header' :  $index === table.selectedColumn}" class="table-header"></th>
+  </tr>
+  <tr ng-repeat="(row,value) in data track by $index" ng-class="{'active-row' : $index === table.selectedRow}">
+    <td ng-bind="row" ng-click="table.selectRow(this)" class="row-header"></td>
+    <td ng-repeat="(cell,row) in value track by $index" ng-bind="row" ng-class="{'active-column' : cell === table.selectedColumn }" class="row-item"></td>
+  </tr>
+</table>
