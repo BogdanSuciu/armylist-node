@@ -54,3 +54,7 @@ army/assets/libs/
 
 # webstorm directories
 .idea
+
+# Ignore CSS & Map File
+*.css
+*.map
