@@ -5,7 +5,8 @@ var cssList = [
   "army/app/directives/two-d-table/two-d-table",
   "army/app/directives/modal/modal",
   "army/app/modules/main-navigation/directives/main-navigation",
-  "army/app/modules/quick-reference/css/quick-reference"
+  "army/app/modules/quick-reference/css/quick-reference",
+  "army/app/modules/army-list/css/army-list-modal"
 ];
 
 // object that will contain all the css/less paths
