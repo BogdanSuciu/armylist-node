@@ -11,12 +11,15 @@
   angular.module("armyApp").factory("requestServices", function($http) {
     return {
       codexList: function() {
-        return $http.get("/api/items").then(function(response) {
+        return $http.get("/api/codex-list").then(function(response) {
           return response.data;
         })
       },
-      forceList: function() {
-        return $http.get("http://armylist.bogdansuciu.com/php/forces.php").then(function(response) {
+      forceList: function(codexId) {
+        var data =  {
+          codex: codexId
+        };
+        return $http.post("/api/forces",data).then(function(response) {
           return response.data.records;
         });
       },

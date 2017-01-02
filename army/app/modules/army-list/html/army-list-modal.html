@@ -1,5 +1,8 @@
 <div class="army-list-modal">
   <h3>Select Faction</h3>
-  <select class="form-control" ng-model="modal.data.selectedCodex" ng-options="y.name for (x,y) in modal.data.codices"></select>
-  {{modal.data.selectedCodex}}
+  <select ng-if="!modal.data.selectedCodex" class="form-control" ng-model="modal.data.selectedCodex" ng-options="y.name for (x,y) in modal.data.codices"></select>
+  <div class="selected-codex" ng-if="modal.data.selectedCodex">
+    <span class="codex-name">{{modal.data.selectedCodex.name}}</span>
+    <button class="btn btn-default pull-right" ng-click="modal.data.selectedCodex = ''">Edit</button>
+  </div>
 </div>
