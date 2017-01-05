@@ -20,24 +20,15 @@
           codex: codexId
         };
         return $http.post("/api/forces",data).then(function(response) {
-          return response.data.records;
+          var data = {
+            forcetypes: response.data
+          };
+          return $http.post("/api/force-types",data).then(function(response){
+            return response;
+          });
         });
       },
-      detachmentDetails: function(data) {
-        return $http.get("http://armylist.bogdansuciu.com/php/detachment.php?id=" + data.id).then(function(response) {
-          return response.data.records;
-        });
-      },
-      units: function(codex, slot) {
-        return $http.get("http://armylist.bogdansuciu.com/php/units.php?codex=" + codex + "&slot=" + slot).then(function(response) {
-          return response.data.records;
-        });
-      },
-      models: function(id) {
-        return $http.get("http://armylist.bogdansuciu.com/php/models.php?model-id=" + id).then(function(response) {
-          return response.data.records;
-        });
-      }
+
     };
   });
 })();

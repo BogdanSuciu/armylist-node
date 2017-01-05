@@ -58,10 +58,12 @@
       var force = {};
       force.selectedCodex = "";
       force.codices = {};
+      force.selectedFormation = "";
       _this.forcesList.forces.push(force);
       
       _modal.template = "app/modules/army-list/html/army-list-modal.html";
       _modal.data = force;
+      _modal.data.retrieveDetachments = _this.retrieveDetachments;
       _modal.showModal();
       
       if(!_this.codices.length) {
@@ -79,6 +81,12 @@
       return requestServices.codexList().then(function(response) {
         return response;
       });
+    };
+
+    _this.retrieveDetachments = function (codexId) {
+      return requestServices.forceList(codexId).then(function(response) {
+        console.log(response);
+      });
     }
     
     // TODO refactor
@@ -90,44 +98,6 @@
     _this.troops;
     _this.troopsList = {};
     _this.models={};
-    
-    _this.getForceType = function(selectedCodex) {
-      // must use selectedCodex to filter different detachments
-      requestServices.forceList().then(function(response) {
-        _this.forces = response;
-      });
-    };
-    // retrieving detachment data
-    _this.getDetachment = function(data) {
-      requestServices.detachmentDetails(data).then(function(response) {
-        _this.detachment = response;
-        for(var iPos=1; iPos<=_this.detachment.max_troops; iPos++) {
-          _this.troopsList[iPos] = {selectedOption: ""};
-          if(iPos<=_this.detachment.min_troops) {
-            _this.troopsList[iPos]["required"] = true;
-          }
-        }
-      });
-    };
-    // requesting available troops for selected codex
-    _this.getTroops = function(codex) {
-      requestServices.units(codex.id, "2").then(function(response) {
-        _this.troops = response;
-      });
-      
-    };
-    // returns stats for models of selected unit
-    _this.getModels = function(unit) {
-      var modelId = unit.model_01.id;
-      if(!_this.models[modelId]) {
-        requestServices.models(modelId).then(function(response) {
-          _this.models[modelId] = response;
-        });
-      }
-    };
-    // resets selection of current army unit
-    _this.resetSelection = function(el) {
-      el.selectedOption='';
-    };
+
   });
 })();
