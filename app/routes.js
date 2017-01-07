@@ -49,9 +49,8 @@ module.exports = function (app) {
    */
   app.post('/api/force-types', function (req, res) {
     var idArray = [];
-    var parsedIds = JSON.parse(req.body.forcetypes);
-    for(var i = 0; i < parsedIds.length; i++) {
-      var currentId = parsedIds[i];
+    for(var i = 0; i < req.body.forcetypes.length; i++) {
+      var currentId = req.body.forcetypes[i];
       console.log(currentId);
       idArray.push(mongoose.mongo.ObjectId(currentId));
     }
