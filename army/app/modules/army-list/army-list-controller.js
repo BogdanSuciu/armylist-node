@@ -55,24 +55,32 @@
     };
     
     _this.addForce = function() {
-      var force = {};
-      force.selectedCodex = "";
-      force.codices = {};
-      force.selectedFormation = "";
-      _this.forcesList.forces.push(force);
-      
-      _modal.template = "app/modules/army-list/html/army-list-modal.html";
-      _modal.data = force;
-      _modal.data.retrieveDetachments = _this.retrieveDetachments;
-      _modal.showModal();
+      var data = {}
+      data.force = {};
+      data.force.selectedCodex = "";
+      data.force.selectedDetachment = "";
+      data.force.codices = {};
+      data.force.selectedFormation = "";
+      data.force.detachmentList = [];
+
+      data.retrieveDetachments = function(codexId) {
+        _this.retrieveDetachments(codexId).then(function(response) {
+          data.force.detachmentList = response;
+        });
+      };
+      data.saveSelection = function() {
+        _this.forcesList.forces.push(data.force);
+        _modal.hideModal();
+      };
+      _modal.showModal("app/modules/army-list/html/army-list-modal.html",data);
       
       if(!_this.codices.length) {
         _this.retrieveCodices().then(function(response) {
           _this.codices = response;
-          force.codices = response
+          data.force.codices = response
         });
       } else {
-        force.codices = _this.codices;
+        data.force.codices = _this.codices;
       }
     }
     
@@ -85,9 +93,10 @@
 
     _this.retrieveDetachments = function (codexId) {
       return requestServices.forceList(codexId).then(function(response) {
-        console.log(response);
+        return response;
       });
     }
+
     
     // TODO refactor
     _this.selectedForce;

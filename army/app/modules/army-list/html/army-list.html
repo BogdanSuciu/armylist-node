@@ -62,4 +62,7 @@
           <button ng-click="armyList.addForce()" class="btn btn-default btn-block">Add Force</button>
         </div>
       </div>
+      <div class="row" ng-repeat="force in armyList.forcesList.forces">
+        {{force.selectedCodex}}
+      </div>
     </div>
