@@ -19,11 +19,15 @@
         scope.modal = scopeService.shared.modal;
         var _this = scope.modal;
         _this.show = false;
-        _this.showModal = function() {
+        _this.showModal = function(template, data) {
+          _this.template = template;
+          _this.data = data;
           _this.show = true;
         }
         _this.hideModal = function() {
           _this.show = false;
+          _this.template = "";
+          _this.data = {};
         };
       },
       templateUrl: 'app/directives/modal/modal.html'
