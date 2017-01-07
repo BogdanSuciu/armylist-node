@@ -24,7 +24,7 @@
             forcetypes: response.data
           };
           return $http.post("/api/force-types",data).then(function(response){
-            return response;
+            return response.data;
           });
         });
       },
