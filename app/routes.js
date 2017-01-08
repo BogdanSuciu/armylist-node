@@ -51,7 +51,6 @@ module.exports = function (app) {
     var idArray = [];
     for(var i = 0; i < req.body.forcetypes.length; i++) {
       var currentId = req.body.forcetypes[i];
-      console.log(currentId);
       idArray.push(mongoose.mongo.ObjectId(currentId));
     }
     forceTypes.find({
