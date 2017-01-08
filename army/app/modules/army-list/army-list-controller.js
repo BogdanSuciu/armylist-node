@@ -95,6 +95,10 @@
       return requestServices.forceList(codexId).then(function(response) {
         return response;
       });
+    };
+
+    _this.removeForce = function(index) {
+      _this.forcesList.forces.splice(index,1);
     }
 
     

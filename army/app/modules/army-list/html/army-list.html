@@ -62,7 +62,23 @@
           <button ng-click="armyList.addForce()" class="btn btn-default btn-block">Add Force</button>
         </div>
       </div>
-      <div class="row" ng-repeat="force in armyList.forcesList.forces">
-        {{force.selectedCodex}}
+      <div class="row" ng-if="armyList.armyForm.armySaved">
+        <div class="col-xs-12">
+          <h3>Forces List</h3>
+          <div class="panel panel-default" ng-repeat="(index,force) in armyList.forcesList.forces">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-10">
+                  <h4 ng-bind="force.selectedDetachment.name"></h4>
+                  <h5 ng-bind="force.selectedCodex.name"></h5>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-2">
+                  <button ng-click="" class="btn btn-default btn-block"><span class="glyphicon glyphicon-pencil"></span></button>
+                  <button ng-click="armyList.removeForce(index)" class="btn btn-default btn-block"><span class="glyphicon glyphicon-trash"></span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
