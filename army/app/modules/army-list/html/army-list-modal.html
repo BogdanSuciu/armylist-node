@@ -1,11 +1,13 @@
 <div class="army-list-modal">
-  <h3>Select Faction</h3>
-  <select ng-if="!modal.data.force.selectedCodex" class="form-control" ng-model="modal.data.force.selectedCodex" ng-change="modal.data.retrieveDetachments(modal.data.force.selectedCodex._id)" ng-options="y.name for (x,y) in modal.data.force.codices"></select>
-  <div class="selected-codex" ng-if="modal.data.force.selectedCodex">
-    <span class="codex-name">{{modal.data.force.selectedCodex.name}}</span>
-    <button class="btn btn-default pull-right" ng-click="modal.data.force.selectedCodex = '';modal.data.force.selectedDetachment = ''">Edit</button>
+  <div class="form-group">
+    <h3>Select Faction</h3>
+    <select ng-if="!modal.data.force.selectedCodex" class="form-control" ng-model="modal.data.force.selectedCodex" ng-change="modal.data.retrieveDetachments(modal.data.force.selectedCodex._id)" ng-options="y.name for (x,y) in modal.data.force.codices"></select>
+    <div class="selected-codex" ng-if="modal.data.force.selectedCodex">
+      <span class="codex-name">{{modal.data.force.selectedCodex.name}}</span>
+      <button class="btn btn-default pull-right" ng-click="modal.data.force.selectedCodex = '';modal.data.force.selectedDetachment = ''">Edit</button>
+    </div>
   </div>
-  <div ng-if="modal.data.force.selectedCodex">
+  <div class="form-group" ng-if="modal.data.force.selectedCodex">
     <h3>Select Force Type</h3>
     <select ng-if="!modal.data.force.selectedDetachment" class="form-control" ng-model="modal.data.force.selectedDetachment" ng-change="" ng-options="y.name for (x,y) in modal.data.force.detachmentList"></select>
     <div class="selected-detachment" ng-if="modal.data.force.selectedDetachment">
