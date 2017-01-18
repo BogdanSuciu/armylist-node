@@ -1,23 +1,32 @@
 {
   "name": "starter-node-angular",
   "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "version": "0.0.1",
   "description": "app to build warhammer army and tools for usage in warhammer games",
-  "keywords": ["warhammer", "warhammer40000", "warhammer40k", "40k", "wh40k"],
+  "keywords": [
+    "warhammer",
+    "warhammer40000",
+    "warhammer40k",
+    "40k",
+    "wh40k"
+  ],
   "bugs": "bogdan.suciu@gmail.com",
   "license": "UNLICENSED",
   "private": true,
   "author": "Bogdan Suciu <bogdan.suciu@gmail.com> (http://bogdansuciu.com)",
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https://github.com/BogdanSuciu/armylist-node.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BogdanSuciu/armylist-node.git"
   },
   "dependencies": {
     "body-parser": "~1.4.2",
     "express": "~4.5.1",
     "method-override": "~2.0.2",
-    "mongoose": "~4.4"
+    "mongoose": "~4.4",
+    "nodemon": "^1.11.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
