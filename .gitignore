@@ -58,3 +58,5 @@ army/assets/libs/
 # Ignore CSS & Map File
 *.css
 *.map
+
+# ignore webpack built js
