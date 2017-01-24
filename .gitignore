@@ -59,4 +59,5 @@ army/assets/libs/
 *.css
 *.map
 
-# ignore webpack built js
+# ignore webpack folder
+dist

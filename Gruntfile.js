@@ -1,3 +1,6 @@
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 // array with path to css file - includes file name without extension
 var cssList = [
   "army/app/styles/styles",
@@ -33,6 +36,53 @@ module.exports = function(grunt) {
         files: fileObject
       }
     },
+    webpack: {
+        options: {
+          context: __dirname + '\\army',
+          entry: {
+            app: '.\\index.js',
+            vendor: [
+              'angular',
+              'ngstorage-webpack',
+              'angular-route',
+              'jquery',
+              'bootstrap'
+            ]
+          },
+          output: {
+            path: __dirname + '\\army\\dist',
+            filename: 'bundle.js'
+          },
+          module: {
+            loaders: [
+              {
+                test: /\.css/,
+                loader: ExtractTextPlugin.extract("css")
+              },
+              {
+                test: /\.js/,
+                loader: 'babel',
+                include: __dirname + '\\army',
+               }
+            ],
+          },
+          plugins: [
+          
+            new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
+            
+            new webpack.ProvidePlugin({
+              $: "jquery",
+              jQuery: "jquery"
+            }),
+            
+            new ExtractTextPlugin("styles.css")
+            
+          ]
+        },
+        build: {
+            // configuration for this build
+        }
+    },
     watch: {
       styles: {
         files: ['army/**/*.less'], // which files to watch
@@ -40,9 +90,16 @@ module.exports = function(grunt) {
         options: {
           nospawn: true
         }
+      },
+      webpack: {
+        files: ['army/app/*.js', 'army/index.js'], // which files to watch
+        tasks: ['webpack'],
+        options: {
+          nospawn: true
+        }
       }
     }
   });
 
-  grunt.registerTask('compile-less', ['less', 'watch']);
+  grunt.registerTask('compile-less', ['less', 'watch', 'webpack']);
 };

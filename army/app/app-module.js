@@ -1,3 +1,4 @@
+import angularRoute from 'angular-route';
 /*
  * ANGULAR SINGLE PAGE Warhammer APP
  * Version: 1.0
@@ -7,5 +8,5 @@
 (function() {
   "use strict";
   // defining angular application module
-  angular.module("armyApp", ["ngStorage","ngRoute"]);
+  angular.module("armyApp", ["ngStorage",angularRoute]);
 })();

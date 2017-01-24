@@ -2,7 +2,7 @@
   "name": "starter-node-angular",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "webpack && nodemon server.js"
   },
   "version": "0.0.1",
   "description": "app to build warhammer army and tools for usage in warhammer games",
@@ -22,16 +22,31 @@
     "url": "https://github.com/BogdanSuciu/armylist-node.git"
   },
   "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
     "body-parser": "~1.4.2",
+    "bootstrap": "^3.3.7",
     "express": "~4.5.1",
+    "jquery": "^3.1.1",
     "method-override": "~2.0.2",
     "mongoose": "~4.4",
+    "ngstorage-webpack": "^2.2.2",
     "nodemon": "^1.11.0"
   },
   "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "grunt": "^1.0.1",
     "grunt-contrib-less": "^1.4.0",
     "grunt-contrib-watch": "^1.0.0",
-    "jit-grunt": "^0.10.0"
+    "grunt-webpack": "^1.0.18",
+    "jit-grunt": "^0.10.0",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   }
 }
