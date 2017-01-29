@@ -26,16 +26,6 @@ module.exports = function(grunt) {
   require('jit-grunt')(grunt);
 
   grunt.initConfig({
-    less: {
-      development: {
-        options: {
-          compress: true,
-          yuicompress: true,
-          optimization: 2
-        },
-        files: fileObject
-      }
-    },
     webpack: {
         options: {
           context: __dirname + '\\army',
@@ -56,14 +46,14 @@ module.exports = function(grunt) {
           module: {
             loaders: [
               {
-                test: /\.css/,
-                loader: ExtractTextPlugin.extract("css")
-              },
-              {
                 test: /\.js/,
                 loader: 'babel',
                 include: __dirname + '\\army',
-               }
+               },
+              {
+                  test: /\.less$/,
+                  loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+              }
             ],
           },
           plugins: [
@@ -84,15 +74,8 @@ module.exports = function(grunt) {
         }
     },
     watch: {
-      styles: {
-        files: ['army/**/*.less'], // which files to watch
-        tasks: ['less'],
-        options: {
-          nospawn: true
-        }
-      },
       webpack: {
-        files: ['army/app/*.js', 'army/index.js'], // which files to watch
+        files: ['army/app/*.js', 'army/index.js', 'army/**/*.less'], // which files to watch
         tasks: ['webpack'],
         options: {
           nospawn: true
@@ -101,5 +84,5 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('compile-less', ['less', 'watch', 'webpack']);
+  grunt.registerTask('compile-webpack', ['watch']);
 };
