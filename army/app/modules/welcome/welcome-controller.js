@@ -12,7 +12,7 @@
       scopeService.shared.welcome = {};
     }
     $scope.welcome = scopeService.shared.welcome;
-    var _this = $scope.welcome;
+    let _this = $scope.welcome;
     _this.message = "Welcome to my App";
   });
 })();
