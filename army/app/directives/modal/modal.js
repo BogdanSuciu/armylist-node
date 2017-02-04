@@ -17,7 +17,7 @@
       restrict: 'E',
       link: function(scope) {
         scope.modal = scopeService.shared.modal;
-        var _this = scope.modal;
+        let _this = scope.modal;
         _this.show = false;
         _this.showModal = function(template, data) {
           _this.template = template;
