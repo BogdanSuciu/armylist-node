@@ -12,7 +12,7 @@
       scopeService.shared.pageNotFound = {};
     }
     $scope.pageNotFound = scopeService.shared.pageNotFound;
-    var _this = $scope.pageNotFound;
+    let _this = $scope.pageNotFound;
     _this.message = "WE ARE SORRY THE PAGE YOU ARE LOOKING FOR DOESN'T EXIST";
   });
 })();
