@@ -13,7 +13,8 @@
     }
     $scope.quickReference = scopeService.shared.quickReference;
     let _this = $scope.quickReference;
-    
+
+    // TODO Use server provided data
     _this.ballisticTable = {1:"6",2:"5",3:"4",4:"3",5:"2",6:"2/6",7:"2/5",8:"2/4",9:"2/3",10:"2/2"};
     
     _this.weaponSkillTable = {
