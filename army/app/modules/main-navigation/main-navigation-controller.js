@@ -13,7 +13,8 @@
       scopeService.shared.mainNavigation = {};
     }
     $scope.mainNavigation = scopeService.shared.mainNavigation;
-    var _this = $scope.mainNavigation;
+    let _this = $scope.mainNavigation;
+    // TODO dinamicaly provided pages
     _this.pages = [
       {
         "name": "welcome",
@@ -31,8 +32,8 @@
         "routing-uri": "/quick-reference"
       },
     ];
-    _this.isActive = function (viewLocation) {
-         var active = (viewLocation === $location.path());
+    _this.isActive = (viewLocation) => {
+         let active = (viewLocation === $location.path());
          return active;
     };
   });
