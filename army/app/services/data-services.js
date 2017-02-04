@@ -16,10 +16,10 @@
     */
       expiryCheck: function(data) {
         // retrieving current time stamp
-        var compareTime = new Date().getTime();
+        const compareTime = new Date().getTime();
         // looping through the data and checking how long has passed since it was created
-        for (var i = 0; i < data.length; i++) {
-          var record = data[i];
+        for (let i = 0; i < data.length; i++) {
+          let record = data[i];
           // removing the item if more than 600000 ms or 10 mins have passed
           if (compareTime - record.timeStamp > 600000) {
             data.splice(i, 1);
