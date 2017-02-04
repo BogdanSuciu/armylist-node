@@ -75,7 +75,7 @@ module.exports = function(grunt) {
     },
     watch: {
       webpack: {
-        files: ['army/app/*.js', 'army/index.js', 'army/**/*.less'], // which files to watch
+        files: ['army/app/*.js', 'army/app/**/*.js', 'army/index.js', 'army/**/*.less'], // which files to watch
         tasks: ['webpack'],
         options: {
           nospawn: true
