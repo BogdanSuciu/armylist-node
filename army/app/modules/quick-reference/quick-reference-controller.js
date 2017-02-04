@@ -12,7 +12,7 @@
       scopeService.shared.quickReference = {};
     }
     $scope.quickReference = scopeService.shared.quickReference;
-    var _this = $scope.quickReference;
+    let _this = $scope.quickReference;
     
     _this.ballisticTable = {1:"6",2:"5",3:"4",4:"3",5:"2",6:"2/6",7:"2/5",8:"2/4",9:"2/3",10:"2/2"};
     
