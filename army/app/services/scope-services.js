@@ -9,7 +9,7 @@
   "use strict";
   // defining api communication services
   angular.module("armyApp").factory("scopeService", function() {
-    var shared = {};
+    let shared = {};
     return {
       shared: shared
     };
