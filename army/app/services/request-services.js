@@ -11,24 +11,23 @@
   angular.module("armyApp").factory("requestServices", function($http) {
     return {
       codexList: function() {
-        return $http.get("/api/codex-list").then(function(response) {
+        return $http.get("/api/codex-list").then((response) => {
           return response.data;
         })
       },
       forceList: function(codexId) {
-        var data =  {
+        let data =  {
           codex: codexId
         };
-        return $http.post("/api/forces",data).then(function(response) {
-          var data = {
+        return $http.post("/api/forces",data).then((response) => {
+          let data = {
             forcetypes: response.data
           };
           return $http.post("/api/force-types",data).then(function(response){
             return response.data;
           });
         });
-      },
-
+      }
     };
   });
 })();
