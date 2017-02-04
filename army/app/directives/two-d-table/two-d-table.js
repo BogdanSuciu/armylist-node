@@ -24,7 +24,7 @@
             scopeService.shared[$scope.id] = {};
           }
           if(!scopeService.shared[$scope.id]['twoDTable']) {
-            var obj = {};
+            let obj = {};
             obj.selectedColumn = "";
             obj.selectedRow = "";
             obj.selectColumn = function(column) {
