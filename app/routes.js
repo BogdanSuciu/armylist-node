@@ -5,7 +5,8 @@ var mongoose = require('mongoose');
 // grab the item model we just created
 var codexList = require('./models/codexes');
 var forcesList = require('./models/forces');
-var forceTypes = require('./models/force-types');
+var forceTypes = require('./models/force-types')
+var referenceSheets = require('./models/reference-sheets');
 
 module.exports = function (app) {
 
@@ -40,7 +41,11 @@ module.exports = function (app) {
       if (err)
         res.send(err);
 
-      res.json(forces.force_types); // return all in JSON format
+      if(forces && forces.force_types) {
+          res.json(forces.force_types); // return all in JSON format
+      } else {
+          res.json(null);
+      }
     });
   });
 
@@ -67,6 +72,27 @@ module.exports = function (app) {
           res.send(err);
 
         res.json(typesList); // return all in JSON format
+      });
+  });
+
+  /**
+   * retrieves reference sheet based on name
+   */
+  app.get('/api/reference-sheets/weapon-skill', function (req, res) {
+      referenceSheets.findOne({"name": "weapon_skill_table"}, {"values": true, "_id": false },function (err, response) {
+
+          // if there is an error retrieving, send the error.
+          // nothing after res.send(err) will execute
+          if (err)
+              res.send(err);
+
+          if(response) {
+            res.json(response); // return all in JSON format
+          } else {
+            res.json(null);
+          }
+
+
       });
   });
 
