@@ -14,58 +14,46 @@
     $scope.quickReference = scopeService.shared.quickReference;
     let _this = $scope.quickReference;
 
-    _this.weaponSkillTable = {};
+    if(!_this.referenceTables) {
+      _this.referenceTables = {};
+    }
 
-    _this.referenceTables = {
-      "melee": {
-        values: false,
-        getValues: function() {
+    _this.getReferenceValues = function(table) {
+      switch(table) {
+        case "melee":
           return requestServices.getWeaponSkillTable().then(function(response) {
-            return response.values;
+            return response;
           }).catch(function(error){
             console.error("error")
             return false;
           });
-        }
-      },
-      "ballistic": {
-        values: false,
-        getValues: function() {
+        case "ballistic":
           return requestServices.getBallisticSkillTable().then(function(response) {
-            return response.values;
+            return response;
           }).catch(function(error){
             console.error("error")
             return false;
           });
-        }
-      },
-      "wound": {
-        values: false,
-        getValues: function() {
+        case "wound":
           return requestServices.getToWoundTable().then(function(response) {
-            return response.values;
+            return response;
           }).catch(function(error){
             console.error("error")
             return false;
           });
-        }
       }
     };
 
     _this.toggleReferenceTable = function(table) {
 
-      if(_this.referenceTables[table]) {
+      _this.visibleTable = table;
 
-        _this.visibleTable = table;
-
-        if(!_this.referenceTables[table].values) {
-          _this.referenceTables[table].getValues().then(function(response){
-            _this.referenceTables[table].values = response;
-          }).catch(function(error){
-            console.error(error);
-          });
-        }
-
+      if(!_this.referenceTables[table]) {
+        _this.getReferenceValues(table).then(function(response){
+          _this.referenceTables[table] = response;
+        }).catch(function(error){
+          console.error(error);
+        });
       }
 
     }
