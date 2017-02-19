@@ -16,10 +16,6 @@
 
     _this.weaponSkillTable = {};
 
-    if (!_this.visibleTable) {
-      _this.visibleTable = "ballistic";
-    }
-
     _this.referenceTables = {
       "melee": {
         values: false,
