@@ -33,9 +33,14 @@
         }
       },
       "ballistic": {
-        values: {1: "6", 2: "5", 3: "4", 4: "3", 5: "2", 6: "2/6", 7: "2/5", 8: "2/4", 9: "2/3", 10: "2/2"},
+        values: false,
         getValues: function() {
-          return true;
+          return requestServices.getBallisticSkillTable().then(function(response) {
+            return response.values;
+          }).catch(function(error){
+            console.error("error")
+            return false;
+          });
         }
       },
       "wound": {
