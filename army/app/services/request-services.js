@@ -37,6 +37,11 @@
         return $http.get("/api/reference-sheets/ballistic-skill").then((response) => {
           return response.data;
         })
+      },
+      getToWoundTable: function(){
+        return $http.get("/api/reference-sheets/to-wound").then((response) => {
+          return response.data;
+        })
       }
     };
   });
