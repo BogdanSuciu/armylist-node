@@ -32,6 +32,11 @@
         return $http.get("/api/reference-sheets/weapon-skill").then((response) => {
           return response.data;
         })
+      },
+      getBallisticSkillTable: function(){
+        return $http.get("/api/reference-sheets/ballistic-skill").then((response) => {
+          return response.data;
+        })
       }
     };
   });
