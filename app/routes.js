@@ -76,7 +76,7 @@ module.exports = function (app) {
   });
 
   /**
-   * retrieves reference sheet based on name
+   * retrieves weapon skill table reference
    */
   app.get('/api/reference-sheets/weapon-skill', function (req, res) {
       referenceSheets.findOne({"name": "weapon_skill_table"}, {"values": true, "_id": false },function (err, response) {
@@ -94,6 +94,27 @@ module.exports = function (app) {
 
 
       });
+  });
+
+  /**
+   * retrieves weapon skill table reference
+   */
+  app.get('/api/reference-sheets/ballistic-skill', function (req, res) {
+    referenceSheets.findOne({"name": "ballistic_skill_table"}, {"values": true, "_id": false },function (err, response) {
+
+      // if there is an error retrieving, send the error.
+      // nothing after res.send(err) will execute
+      if (err)
+        res.send(err);
+
+      if(response) {
+        res.json(response); // return all in JSON format
+      } else {
+        res.json(null);
+      }
+
+
+    });
   });
 
   // route to handle creating goes here (app.post)
