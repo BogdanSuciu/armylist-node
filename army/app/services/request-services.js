@@ -27,6 +27,11 @@
             return response.data;
           });
         });
+      },
+      getWeaponSkillTable: function(){
+        return $http.get("/api/reference-sheets/weapon-skill").then((response) => {
+          return response.data;
+        })
       }
     };
   });
