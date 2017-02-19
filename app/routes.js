@@ -117,6 +117,27 @@ module.exports = function (app) {
     });
   });
 
+  /**
+   * retrieves weapon skill table reference
+   */
+  app.get('/api/reference-sheets/to-wound', function (req, res) {
+    referenceSheets.findOne({"name": "to_wound_table"}, {"values": true, "_id": false },function (err, response) {
+
+      // if there is an error retrieving, send the error.
+      // nothing after res.send(err) will execute
+      if (err)
+        res.send(err);
+
+      if(response) {
+        res.json(response); // return all in JSON format
+      } else {
+        res.json(null);
+      }
+
+
+    });
+  });
+
   // route to handle creating goes here (app.post)
   // route to handle delete goes here (app.delete)
 
