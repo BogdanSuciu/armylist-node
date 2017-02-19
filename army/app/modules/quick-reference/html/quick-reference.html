@@ -1,24 +1,24 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="row quick-menu">
-      <div class="col-xs-4 quick-menu-item {{quickReference.visibleTable === 'ballistic' ? 'active' : ''}}" ng-click="quickReference.visibleTable = 'ballistic'">
+      <div class="col-xs-4 quick-menu-item {{quickReference.visibleTable === 'ballistic' ? 'active' : ''}}" ng-click="quickReference.toggleReferenceTable('ballistic')">
         BS
       </div>
-      <div class="col-xs-4 quick-menu-item {{quickReference.visibleTable === 'melee' ? 'active' : ''}}" ng-click="quickReference.visibleTable = 'melee'">
+      <div class="col-xs-4 quick-menu-item {{quickReference.visibleTable === 'melee' ? 'active' : ''}}" ng-click="quickReference.toggleReferenceTable('melee')">
        WS
       </div>
-      <div class="col-xs-4 quick-menu-item {{quickReference.visibleTable === 'wound' ? 'active' : ''}}" ng-click="quickReference.visibleTable = 'wound'">
+      <div class="col-xs-4 quick-menu-item {{quickReference.visibleTable === 'wound' ? 'active' : ''}}" ng-click="quickReference.toggleReferenceTable('wound')">
        WOUND
       </div>
     </div>
   </div>
   <div class="col-xs-12" ng-if="quickReference.visibleTable === 'ballistic'">
-     <one-d-table table-data="quickReference.ballisticTable"></one-d-table>
+     <one-d-table table-data="quickReference.referenceTables.ballistic.values"></one-d-table>
   </div>
   <div class="col-xs-12" ng-if="quickReference.visibleTable === 'melee'">
-    <two-d-table table-data="quickReference.weaponSkillTable" table-label="'A\\D'" table-id="'meleeTable'"></two-d-table>
+    <two-d-table table-data="quickReference.referenceTables.melee.values" table-label="'A\\D'" table-id="'meleeTable'"></two-d-table>
   </div>
   <div class="col-xs-12" ng-if="quickReference.visibleTable === 'wound'">
-    <two-d-table table-data="quickReference.ToWoundTable" table-label="'S\\T'" table-id="'woundTable'"></two-d-table>
+    <two-d-table table-data="quickReference.referenceTables.wound.values" table-label="'S\\T'" table-id="'woundTable'"></two-d-table>
   </div>
 </div>
