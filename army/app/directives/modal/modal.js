@@ -7,7 +7,7 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp").directive('armylistModal', function(scopeService) {
+  angular.module("armyApp").directive('armylistModal',['scopeService', function(scopeService) {
     if(!scopeService.shared.modal) {
       scopeService.shared.modal = {};
       scopeService.shared.modal.template = "";
@@ -32,5 +32,5 @@
       },
       templateUrl: 'app/directives/modal/modal.html'
     };
-  });
+  }]);
 })();

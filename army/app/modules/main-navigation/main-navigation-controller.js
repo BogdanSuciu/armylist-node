@@ -8,7 +8,7 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp").controller("mainNavigation", function($scope, $location, scopeService) {
+  angular.module("armyApp").controller("mainNavigation",['$scope', '$location', 'scopeService', function($scope, $location, scopeService) {
     if(!scopeService.shared.mainNavigation) {
       scopeService.shared.mainNavigation = {};
     }
@@ -36,5 +36,5 @@
          let active = (viewLocation === $location.path());
          return active;
     };
-  });
+  }]);
 })();

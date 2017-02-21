@@ -8,7 +8,7 @@
 (function() {
   "use strict";
   // defining api communication services
-  angular.module("armyApp").factory("requestServices", function($http) {
+  angular.module("armyApp").factory("requestServices",['$http', function($http) {
     return {
       codexList: function() {
         return $http.get("/api/codex-list").then((response) => {
@@ -44,5 +44,5 @@
         })
       }
     };
-  });
+  }]);
 })();

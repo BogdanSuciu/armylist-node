@@ -7,7 +7,7 @@
  */
 (function () {
   "use strict";
-  angular.module("armyApp").controller("quickReference", function ($scope, scopeService, requestServices) {
+  angular.module("armyApp").controller("quickReference",['$scope', 'scopeService', 'requestServices', function ($scope, scopeService, requestServices) {
     if (!scopeService.shared.quickReference) {
       scopeService.shared.quickReference = {};
     }
@@ -58,5 +58,5 @@
 
     }
 
-  });
+  }]);
 })();

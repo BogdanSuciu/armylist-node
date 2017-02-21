@@ -7,7 +7,7 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp").controller("armyList", function(scopeService, dataServices, requestServices, storageServices, $localStorage, $sessionStorage, $scope, $http) {
+  angular.module("armyApp").controller("armyList",['scopeService', 'dataServices', 'requestServices', 'storageServices', '$localStorage', '$sessionStorage', '$scope', '$http', function(scopeService, dataServices, requestServices, storageServices, $localStorage, $sessionStorage, $scope, $http) {
     // registering in the shared scope
     if(!scopeService.shared.armyList) {
       scopeService.shared.armyList = {};
@@ -112,5 +112,5 @@
     _this.troopsList = {};
     _this.models={};
 
-  });
+  }]);
 })();

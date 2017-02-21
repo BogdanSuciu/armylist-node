@@ -65,6 +65,11 @@ module.exports = function (grunt) {
             jQuery: "jquery"
           }),
 
+          new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            compress: false
+          }),
+
           new ExtractTextPlugin("styles.css")
 
         ]

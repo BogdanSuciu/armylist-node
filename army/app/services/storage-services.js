@@ -8,7 +8,7 @@
 (function () {
   "use strict";
   // defining local and session storage services
-  angular.module("armyApp").factory("storageServices", function ($localStorage, $sessionStorage) {
+  angular.module("armyApp").factory("storageServices",['$localStorage', '$sessionStorage', function ($localStorage, $sessionStorage) {
     return {
       // retrieving local and session storage
       localStorage: $localStorage,
@@ -45,5 +45,5 @@
         $sessionStorage.$reset();
       }
     };
-  });
+  }]);
 })();
