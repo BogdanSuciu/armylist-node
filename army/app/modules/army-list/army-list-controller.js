@@ -101,16 +101,5 @@
       _this.forcesList.forces.splice(index,1);
     }
 
-    
-    // TODO refactor
-    _this.selectedForce;
-    _this.detachment;
-    _this.selectedCodex;
-    _this.forces;
-    _this.detachment;
-    _this.troops;
-    _this.troopsList = {};
-    _this.models={};
-
   }]);
 })();
