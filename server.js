@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 var db = require('./config/db');
 
 // set our port
-var port = process.env.PORT || 1012; 
+var port = 9830;
 
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
@@ -39,7 +39,6 @@ app.use(express.static(__dirname + '/army'));
 require('./app/routes')(app); // configure our routes
 
 // start app ===============================================
-// startup our app at http://localhost:8080
 app.listen(port);               
 
 // shoutout to the user                     
